@@ -1,0 +1,144 @@
+reverting commit:
+------------------
+commit 3f5e0356bfb00cde2f97d1b0c99265f21e9dde8d
+Author: sunil sahu <mr.sahu39@gmail.com>
+Date:   Sat Aug 28 10:10:37 2021 +0530
+
+    Linked_List02 binary is added
+
+commit 22441a65ce3dfd4e3006b59a5516a3db2f0f1399
+Author: sunil sahu <mr.sahu39@gmail.com>
+Date:   Sat Aug 28 10:05:43 2021 +0530
+
+    Linked_List01 binary is added
+
+commit 2ec54040f81d50987b870dfa4f57b687a81829a7-----------revert this commit
+Author: sunil sahu <mr.sahu39@gmail.com>
+Date:   Sat Aug 28 10:03:27 2021 +0530
+
+    AAA is added in Linked_List04.c
+
+
+
+
+Check what changes to be revert for the commit id:
+--------------------------------------------------
+root@sunil-VirtualBox:~/Desktop/my_practice_projects/data_structure-algorithm02# git show 2ec54040f81d50987b870dfa4f57b687a81829a7
+commit 2ec54040f81d50987b870dfa4f57b687a81829a7
+Author: sunil sahu <mr.sahu39@gmail.com>
+Date:   Sat Aug 28 10:03:27 2021 +0530
+
+    AAA is added in Linked_List04.c
+
+diff --git a/Linked_List04.c b/Linked_List04.c
+index 4fcec8d..4ae0164 100644
+--- a/Linked_List04.c
++++ b/Linked_List04.c
+@@ -30,7 +30,7 @@ void findmiddle_node(){
+                fast_ptr = fast_ptr->next->next;
+                slow_ptr = slow_ptr->next;
+        }
+-       printf("Middle node element is %d\n",slow_ptr->data);
++       printf("AAAAAAMiddle node element is %d\n",slow_ptr->data);
+ }
+ 
+ void display_node(){
+
+
+
+
+Give the revert command to revert the changes:
+-----------------------------------------------
+root@sunil-VirtualBox:~/Desktop/my_practice_projects/data_structure-algorithm02# git revert 2ec54040f81d50987b870dfa4f57b687a81829a7
+[main 7072c18] Revert "AAA is added in Linked_List04.c"
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+
+
+Check whether change is reflected or not:
+-----------------------------------------
+commit 7072c182208479873e94d3eda59c53d6189aaa57
+Author: sunil sahu <mr.sahu39@gmail.com>
+Date:   Sat Aug 28 10:13:48 2021 +0530
+
+    Revert "AAA is added in Linked_List04.c"
+    
+    This reverts commit 2ec54040f81d50987b870dfa4f57b687a81829a7.
+
+diff --git a/Linked_List04.c b/Linked_List04.c
+index 4ae0164..4fcec8d 100644
+--- a/Linked_List04.c
++++ b/Linked_List04.c
+@@ -30,7 +30,7 @@ void findmiddle_node(){
+                fast_ptr = fast_ptr->next->next;
+                slow_ptr = slow_ptr->next;
+        }
+-       printf("AAAAAAMiddle node element is %d\n",slow_ptr->data);
++       printf("Middle node element is %d\n",slow_ptr->data);
+ }
+ 
+ void display_node(){
+
+
+
+
+
+
+check whether branch is upto date with remote repo or not:
+--------------------------------------------------------------
+root@sunil-VirtualBox:~/Desktop/my_practice_projects/data_structure-algorithm02# git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	Linked_List03
+	Linked_List04
+	Linked_List04.c~
+
+
+
+
+
+after revert this new commits created in local repo:
+----------------------------------------------------
+root@sunil-VirtualBox:~/Desktop/my_practice_projects/data_structure-algorithm02# git log
+commit 7072c182208479873e94d3eda59c53d6189aaa57------------------------------------------------->reverted commit id
+Author: sunil sahu <mr.sahu39@gmail.com>
+Date:   Sat Aug 28 10:13:48 2021 +0530
+
+    Revert "AAA is added in Linked_List04.c"
+    
+    This reverts commit 2ec54040f81d50987b870dfa4f57b687a81829a7.
+
+commit 3f5e0356bfb00cde2f97d1b0c99265f21e9dde8d
+Author: sunil sahu <mr.sahu39@gmail.com>
+Date:   Sat Aug 28 10:10:37 2021 +0530
+
+    Linked_List02 binary is added
+
+
+
+
+push to remote repo to server:
+-----------------------------
+root@sunil-VirtualBox:~/Desktop/my_practice_projects/data_structure-algorithm02# git push origin main
+
+
+check whether branch is upto date with remote repo or not:
+--------------------------------------------------------------
+root@sunil-VirtualBox:~/Desktop/my_practice_projects/data_structure-algorithm02# git status
+On branch main
+Your branch is up-to-date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	Linked_List03
+	Linked_List04
+	Linked_List04.c~
+
+
+
