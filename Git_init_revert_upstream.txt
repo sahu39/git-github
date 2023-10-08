@@ -1,0 +1,35 @@
+git branch --set-upstream-to=origin/master master
+branch 'master' set up to track 'origin/master'.
+=====================================================
+Push and pull become a lot easier. With an upstream branch set, you can simply use the shorthand commands "git pull" and "git push"
+- instead of having to think about the exact parameters like in "git push origin development".
+link:https://www.git-tower.com/learn/git/faq/set-upstream#:~:text=With%20an%20upstream%20branch%20set,t%20pushed%20or%20pulled%2C%20yet.
+
+
+
+
+How to unstage large number of files without deleting the content:
+======================================================================
+link:https://stackoverflow.com/questions/7103631/how-to-unstage-large-number-of-files-without-deleting-the-content
+git reset
+If all you want is to undo an overzealous "git add" run:
+
+git reset
+Your changes will be unstaged and ready for you to re-add as you please.
+
+DO NOT RUN git reset --hard.
+
+It will not only unstage your added files, but will revert any changes you made in your working directory. If you created any new files in working directory, it will not delete them though.
+
+
+How to init a repository and add remote repository to it:
+============================================================
+1st:sunil-pc@LAPTOP-K43MRL3F MINGW64 /d/Studies/CPP_udemy_practice (master)
+	$ git init
+
+2nd:create a new repo in gihub/bitbucket 
+
+3rd:Link the remote repo to local repo:
+---------------------------------------
+sunil-pc@LAPTOP-K43MRL3F MINGW64 /d/Studies/CPP_udemy_practice (master)
+$ git remote add origin https://sahu39@bitbucket.org/sahu39/cpp_udemy.git
